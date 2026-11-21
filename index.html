@@ -109,10 +109,24 @@
       background: var(--cream);
       border: 1px solid var(--wood-light);
       border-radius: var(--radius);
-      padding: 16px 6px 14px;
-      font-weight: 700;
+      padding: 0 0 12px;
+      overflow: hidden;
       font-size: .95rem;
       line-height: 1.35;
+    }
+    #menu li strong { padding: 0 6px; }
+    #menu li span { font-weight: 700; }
+    /* 사진이 없으면 우드톤 임시 배경이 보임 */
+    #menu .photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, var(--wood-light), var(--wood));
+    }
+    #menu .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     #menu li span { font-size: .9rem; color: var(--accent); }
 
@@ -194,9 +208,18 @@
     <section id="menu">
       <h2>메뉴</h2>
       <ul>
-        <li>핸드드립 <span>6,000원</span></li>
-        <li>플랫화이트 <span>5,000원</span></li>
-        <li>바스크 치즈케이크 <span>7,000원</span></li>
+        <li>
+          <div class="photo"><img src="images/handdrip.jpg" alt="핸드드립 사진" loading="lazy" onerror="this.remove()"></div>
+          <strong>핸드드립</strong> <span>6,000원</span>
+        </li>
+        <li>
+          <div class="photo"><img src="images/flatwhite.jpg" alt="플랫화이트 사진" loading="lazy" onerror="this.remove()"></div>
+          <strong>플랫화이트</strong> <span>5,000원</span>
+        </li>
+        <li>
+          <div class="photo"><img src="images/basque-cheesecake.jpg" alt="바스크 치즈케이크 사진" loading="lazy" onerror="this.remove()"></div>
+          <strong>바스크 치즈케이크</strong> <span>7,000원</span>
+        </li>
       </ul>
     </section>
 
