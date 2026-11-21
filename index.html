@@ -125,8 +125,17 @@
       font-size: .95rem;
     }
 
-    #hours li { padding: 6px 0; }
-    #hours li:last-child { color: var(--accent); font-weight: 700; }
+    #hours table { width: 100%; border-collapse: collapse; }
+    #hours th, #hours td { padding: 9px 12px; text-align: left; }
+    #hours thead th {
+      font-size: .85rem;
+      color: var(--wood);
+      border-bottom: 2px solid var(--wood-light);
+    }
+    #hours tbody th { width: 4.5em; font-weight: 700; color: var(--wood-dark); }
+    #hours tbody tr:nth-child(even) { background: var(--cream); }
+    #hours tbody tr + tr { border-top: 1px dashed var(--wood-light); }
+    #hours tr.closed th, #hours tr.closed td { color: var(--accent); font-weight: 700; }
 
     /* 푸터 */
     footer#contact {
@@ -189,11 +198,20 @@
 
     <section id="hours">
       <h2>영업시간</h2>
-      <ul>
-        <li>평일(화~금) 08:00 ~ 20:00</li>
-        <li>주말(토·일) 10:00 ~ 18:00</li>
-        <li>월요일 휴무</li>
-      </ul>
+      <table>
+        <thead>
+          <tr><th scope="col">요일</th><th scope="col">영업시간</th></tr>
+        </thead>
+        <tbody>
+          <tr class="closed"><th scope="row">월</th><td>휴무</td></tr>
+          <tr><th scope="row">화</th><td>08:00 ~ 20:00</td></tr>
+          <tr><th scope="row">수</th><td>08:00 ~ 20:00</td></tr>
+          <tr><th scope="row">목</th><td>08:00 ~ 20:00</td></tr>
+          <tr><th scope="row">금</th><td>08:00 ~ 20:00</td></tr>
+          <tr><th scope="row">토</th><td>10:00 ~ 18:00</td></tr>
+          <tr><th scope="row">일</th><td>10:00 ~ 18:00</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <section id="location">
