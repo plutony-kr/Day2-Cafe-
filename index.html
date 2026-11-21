@@ -148,6 +148,19 @@
     footer#contact h2 { border: 0; padding: 0; color: var(--wood-light); }
     footer#contact p { margin: 4px 0; }
     footer#contact a { color: #f2d9b5; }
+    footer#contact a.btn-insta {
+      justify-content: center;
+      min-height: 48px;
+      margin-top: 8px;
+      padding: 0 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--wood-dark);
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,.25);
+    }
+    footer#contact a.btn-insta:active { transform: translateY(1px); }
 
     /* 본문·푸터 링크도 손가락으로 누르기 쉽게 (최소 44px) */
     #location a, footer#contact a {
@@ -225,7 +238,7 @@
   <footer id="contact">
     <h2>연락처</h2>
     <p>전화 <a href="tel:031-000-0000">031-000-0000</a></p>
-    <p>인스타그램 <a href="https://www.instagram.com/brewingroad/" target="_blank" rel="noopener noreferrer">@brewingroad</a></p>
+    <p><a class="btn-insta" href="https://www.instagram.com/brewingroad/" target="_blank" rel="noopener noreferrer">인스타그램 @brewingroad</a></p>
   </footer>
 
   <script>
