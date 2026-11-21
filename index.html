@@ -126,6 +126,13 @@
     footer#contact p { margin: 4px 0; }
     footer#contact a { color: #f2d9b5; }
 
+    /* 본문·푸터 링크도 손가락으로 누르기 쉽게 (최소 44px) */
+    #location a, footer#contact a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
     a:focus-visible { outline: 3px solid #f2b66d; outline-offset: 2px; }
 
     @media (min-width: 700px) {
