@@ -12,6 +12,11 @@
     <h1>브루잉로드</h1>
     <p>매일아침 볶는 싱글오리진</p>
     <p>2019년 오픈 · 원두 직접 로스팅</p>
+    <p id="open-status" aria-live="polite"></p>
+    <p>
+      <a id="btn-call" href="tel:031-000-0000">전화 걸기</a>
+      <a id="btn-map" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B9%80%ED%8F%AC%EC%8B%9C%20%EA%B1%B8%ED%8F%AC%EB%8F%99%20%EB%B8%8C%EB%A3%A8%EC%9E%89%EB%A1%9C%EB%93%9C" target="_blank" rel="noopener noreferrer">지도 보기</a>
+    </p>
   </header>
 
   <main>
@@ -46,14 +51,43 @@
       <h2>위치</h2>
       <p>경기도 김포시 걸포동</p>
       <p>걸포북변역에서 도보 5분</p>
+      <p><a href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B9%80%ED%8F%AC%EC%8B%9C%20%EA%B1%B8%ED%8F%AC%EB%8F%99%20%EB%B8%8C%EB%A3%A8%EC%9E%89%EB%A1%9C%EB%93%9C" target="_blank" rel="noopener noreferrer">지도 보기</a></p>
     </section>
   </main>
 
   <footer id="contact">
     <h2>연락처</h2>
-    <p>전화 031-000-0000</p>
-    <p>인스타그램 @brewingroad</p>
+    <p>전화 <a href="tel:031-000-0000">031-000-0000</a></p>
+    <p>인스타그램 <a href="https://www.instagram.com/brewingroad/" target="_blank" rel="noopener noreferrer">@brewingroad</a></p>
   </footer>
+
+  <script>
+    // 오늘 영업 여부 표시 (월요일 휴무, 평일 08~20시, 주말 10~18시)
+    (function () {
+      var el = document.getElementById('open-status');
+      if (!el) return;
+      var now = new Date();
+      var day = now.getDay(); // 0=일, 1=월
+      var minutes = now.getHours() * 60 + now.getMinutes();
+      var text;
+      if (day === 1) {
+        text = '오늘은 휴무일입니다';
+      } else {
+        var weekend = (day === 0 || day === 6);
+        var open = weekend ? 10 * 60 : 8 * 60;
+        var close = weekend ? 18 * 60 : 20 * 60;
+        var closeLabel = weekend ? '18:00' : '20:00';
+        if (minutes >= open && minutes < close) {
+          text = '지금 영업 중 · ' + closeLabel + '까지';
+        } else if (minutes < open) {
+          text = '영업 준비 중 · ' + (weekend ? '10:00' : '08:00') + ' 오픈';
+        } else {
+          text = '오늘 영업 종료';
+        }
+      }
+      el.textContent = text;
+    })();
+  </script>
 
 </body>
 </html>
