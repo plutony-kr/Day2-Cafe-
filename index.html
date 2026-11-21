@@ -93,14 +93,28 @@
     section p { margin: 4px 0; }
     ul { list-style: none; margin: 0; padding: 0; }
 
+    #menu ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
     #menu li {
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px dashed var(--wood-light);
+      gap: 8px;
+      text-align: center;
+      word-break: keep-all;
+      background: var(--cream);
+      border: 1px solid var(--wood-light);
+      border-radius: var(--radius);
+      padding: 16px 6px 14px;
+      font-weight: 700;
+      font-size: .95rem;
+      line-height: 1.35;
     }
-    #menu li:last-child { border-bottom: 0; }
-    #menu li span { font-weight: 700; color: var(--wood); }
+    #menu li span { font-size: .9rem; color: var(--accent); }
 
     #space ul { display: flex; flex-wrap: wrap; gap: 8px; }
     #space li {
